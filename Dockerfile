@@ -1,3 +1,7 @@
-FROM alpine/git
+FROM alpine
 
-RUN apk add --no-cache bash
+RUN apk --update add less bash git openssh && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /var/cache/apk/*
+
+ENTRYPOINT ["bash"]
